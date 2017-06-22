@@ -25,9 +25,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'b^$@ub2(y%^8r-7kg2angi%q_6o7_=(znk#9$$-strk49@3im0'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-
-
+DEBUG = True
 
 
 # Application definition
@@ -75,22 +73,22 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'Demo.wsgi.application'
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join (BASE_DIR, 'db.sqlite3'),
-#     }
-# }
-
-
-DATABASES ={
-    'default':dj_database_url.config()
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join (BASE_DIR, 'db.sqlite3'),
+    }
 }
-db_from_env=dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
-STATICFILES_STORAGE = 'whitenoise.storage CompressedManifestStaticFilesStorage'
 
-SECURE_PROXY_SSL_HEADER =('HTTP_X_FORWARDED_PROTO','https')
+
+# DATABASES ={
+#     'default':dj_database_url.config()
+# }
+# db_from_env=dj_database_url.config(conn_max_age=500)
+# DATABASES['default'].update(db_from_env)
+# STATICFILES_STORAGE = 'whitenoise.storage CompressedManifestStaticFilesStorage'
+#
+# SECURE_PROXY_SSL_HEADER =('HTTP_X_FORWARDED_PROTO','https')
 
 
 # Internationalization
@@ -110,7 +108,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
-ALLOWED_HOSTS = []
+
 
 STATIC_URL = '/static/'
 
